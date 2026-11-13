@@ -112,9 +112,9 @@
   <div class="line-card">
     <div class="kv"><span>第 1 单 · 2026-10-24 平仓</span><b style="color:var(--red)">−$1.59</b></div>
     <div class="kv"><span>第 2 单 · 2026-10-28 于 80,500 平仓</span><b style="color:var(--green)">+$0.33</b></div>
-    <div class="kv"><span>已平合计</span><b>−$1.26</b></div>
-    <div class="kv"><span>第 3 单 · 进行中</span><b>0.07 张 · 均价 77,785.7</b></div>
-    <div class="note">新规矩下完成样本只有 2 单，这本账只记事实，不下结论。</div>
+    <div class="kv"><span>已平合计</span><b>−$3.98</b></div>
+    <div class="kv"><span>第 3 单 · 2026-11-09 于 73,934 平仓</span><b style="color:var(--red)">−$2.72</b></div>
+    <div class="note">第 3 单是新规矩下第一笔走完的单；前两单是旧账。这本账只记事实，不下结论。</div>
   </div>
 </section>
 
@@ -127,8 +127,8 @@
   <div class="line-card"><h3>创钱包线影子账</h3>
     <div class="kv"><span>虚拟本金</span><b>$1,000</b></div>
     <div class="kv"><span>现金 / 持仓 BTC</span><b>$1,000 / 0</b></div>
-    <div class="kv"><span>三档触发</span><b>均未触发</b></div>
-    <div class="kv"><span>记账至 2026-11-06</span><b>收盘 75,848.1 · 回撤 12.43%</b></div>
+    <div class="kv"><span>三档触发</span><b>第一档已触发（2026-11-13），余两档未触发</b></div>
+    <div class="kv"><span>记账至 2026-11-12</span><b>收盘 71,461.0 · 回撤 17.50%</b></div>
     <div class="note">基准价 76,467.8（2026-11-05 定格）；验收要满 6 个月且至少真触发一次 20% 档。</div>
   </div>
 </section>
@@ -146,10 +146,9 @@
 <footer id="foot"></footer>
 <script>
 var ATH=126080, HP90=86618;
-var FALLBACK={px:75869.5,chg:0.24,high:76378.7,low:74887.9,vol:545300000,fng:25,fngY:28};
-var ORDER3={contracts:0.07,btc:0.0007,avg:77785.7,inRisk:4.36,inRiskPct:0.88,liq:52201.4,
-  lots:[["第一笔","0.02 张 · 78,500","止损 72,220"],["补仓","0.05 张 · 77,500","止损 71,300"]]};
-var TIERS=[["第一档",-20,69294],["第二档",-30,60633],["第三档",-40,51971]];
+var FALLBACK={px:68749,chg:-6.68,high:74196.9,low:68000,vol:545300000,fng:20,fngY:28};
+var POS={contracts:0.08,btc:0.0008,avg:73855,stop:79763,inRisk:4.73,inRiskPct:0.96,liq:98073.4};
+var TIERS=[["第一档",-20,69294.2],["第二档",-30,60632.5],["第三档",-40,51970.7]];
 var IDX={spx:null,ndq:null,gold:null};
 function $(id){return document.getElementById(id)}
 function fmt(n,d){if(n==null||isNaN(n))return "—";return n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d})}
@@ -167,26 +166,24 @@ function renderTiers(px){
   $("tiers").innerHTML=h;
 }
 function renderLines(px){
-  var pnl=(px-ORDER3.avg)*ORDER3.btc, pnlPct=(px/ORDER3.avg-1)*100;
-  var stopDist=(px-72220)/px*100;
-  var lots="";
-  ORDER3.lots.forEach(function(l){lots+='<div class="kv"><span>'+l[0]+' '+l[1]+'</span><b>'+l[2]+'</b></div>'});
+  var pnl=(POS.avg-px)*POS.btc, pnlPct=(POS.avg-px)/POS.avg*100;
+  var stopDist=(POS.stop-px)/px*100;
   var h="";
   h+='<div class="line-card"><h3>线1 · BTC 长拿（交易） <span class="tag live">运行中</span></h3>'
-    +'<div class="kv"><span>第 3 单 · 多单 '+ORDER3.contracts+' 张</span><b>均价 '+fmt(ORDER3.avg,1)+'</b></div>'
-    +lots
+    +'<div class="kv"><span>现持仓 · 空单 '+POS.contracts+' 张</span><b>均价 '+fmt(POS.avg,1)+'</b></div>'
+    +'<div class="kv"><span>开仓</span><b>0.08 张 · 73,855 · 3 倍逐仓</b></div>'
     +'<div class="kv"><span>按现价浮动</span><b style="color:'+cls(pnl)+'">'+(pnl>=0?"+":"−")+'$'+fmt(Math.abs(pnl),2)+'（'+pct(pnlPct)+'）</b></div>'
-    +'<div class="kv"><span>离主止损 72,220 还差</span><b>'+stopDist.toFixed(1)+'%</b></div>'
-    +'<div class="kv"><span>全单在险</span><b>$'+ORDER3.inRisk+' ≈ '+ORDER3.inRiskPct+'%</b></div>'
-    +'<div class="note">止损挂在交易所，整笔进出；状态：拿着先。</div></div>';
+    +'<div class="kv"><span>离止损 79,763 还差</span><b>'+stopDist.toFixed(1)+'%</b></div>'
+    +'<div class="kv"><span>全单在险</span><b>$'+POS.inRisk+' ≈ '+POS.inRiskPct+'%</b></div>'
+    +'<div class="note">止损挂在交易所，已核在位，整笔进出。此单是 2026-11-11 本人亲手开的，在规矩定版之前，按手册第十条不追溯、不编号。</div></div>';
   h+='<div class="line-card"><h3>线2 · 创钱包（长持） <span class="tag live">运行中</span></h3>'
     +'<div class="kv"><span>BTC</span><b>0.00496387</b></div>'
     +'<div class="kv"><span>IMX</span><b>21</b></div>'
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div>'
-    +'<div class="kv"><span>影子账（虚拟 $1,000）</span><b>现金 $1,000 · 三档未触发</b></div>'
+    +'<div class="kv"><span>影子账（虚拟 $1,000）</span><b>现金 $1,000 · 第一档今日已触发</b></div>'
     +'<div class="kv"><span>基准价（2026-11-05 定格）</span><b>$76,467.8</b></div>'
-    +'<div class="kv"><span>影子记账至 2026-11-06</span><b>收盘 75,848.1 · 回撤 12.43%</b></div>'
-    +'<div class="note">只买不卖的长持线：回撤三档见上方盯盘线（实时回撤按现价算），到档由本人自己在钱包买入；影子账先行验证，满 6 个月且至少真触发一次 20% 档才算验完。</div></div>';
+    +'<div class="kv"><span>影子记账至 2026-11-12</span><b>收盘 71,461.0 · 回撤 17.50%</b></div>'
+    +'<div class="note">只买不卖的长持线：回撤三档见上方盯盘线（实时回撤按现价算），到档由本人自己在钱包买入；影子账先行验证，满 6 个月且至少真触发一次 20% 档才算验完。第一档 2026-11-13 盘中已触发，影子账今晚收盘正式记这一档；真钱没买（本人定：现在没资金买）。</div></div>';
   h+='<div class="line-card"><h3>线3 · 标普 500 <span class="tag idle">已立线 · 未投钱</span></h3>'
     +'<div class="kv"><span>标普 500 指数</span><b id="spxPx">'+(IDX.spx?fmt(IDX.spx,1):"—")+'</b></div>'
     +'<div class="note">定投篮子成员（标普＋纳指＋黄金），过年后再启动，现在只看价。</div></div>';
@@ -207,11 +204,11 @@ function renderHolds(){
     +'<div class="kv"><span>IMX</span><b>21</b></div>'
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div></div>';
   h+='<div class="line-card"><h3>OKX 交易资金</h3>'
-    +'<div class="kv"><span>交易账户</span><b>$71.82</b></div>'
-    +'<div class="kv"><span>简单赚币（活期）</span><b>$420.82</b></div>'
-    +'<div class="kv"><span>赚币累计利息</span><b>$0.82</b></div>'
-    +'<div class="kv"><span>合计</span><b>$492.64</b></div>'
-    +'<div class="note">读数日期 2026-11-07（只读自查）；闲置资金只放活期，三个口袋分开记。</div></div>';
+    +'<div class="kv"><span>交易账户</span><b>$74.98</b></div>'
+    +'<div class="kv"><span>简单赚币（活期）</span><b>$421.47</b></div>'
+    +'<div class="kv"><span>赚币累计利息</span><b>$1.47</b></div>'
+    +'<div class="kv"><span>合计</span><b>$496.45</b></div>'
+    +'<div class="note">读数日期 2026-11-13（只读自查）；闲置资金只放活期，三个口袋分开记。</div></div>';
   h+='<div class="line-card"><h3>国金证券账户</h3>'
     +'<div class="kv"><span>标普500ETF博时 513500</span><b>300 份 · 成本 2.695</b></div>'
     +'<div class="kv"><span>纳指ETF广发 159941</span><b>100 份 · 成本 1.634</b></div>'
