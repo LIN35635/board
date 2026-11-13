@@ -147,7 +147,7 @@
 <script>
 var ATH=126080, HP90=86618;
 var FALLBACK={px:68749,chg:-6.68,high:74196.9,low:68000,vol:545300000,fng:20,fngY:28};
-var POS={contracts:0.08,btc:0.0008,avg:73855,stop:79763,inRisk:4.73,inRiskPct:0.96,liq:98073.4};
+var POS={contracts:0.08,btc:0.0008,avg:73855,stop:79763,inRisk:4.73,inRiskPct:0.96,liq:98071.6};
 var TIERS=[["第一档",-20,69294.2],["第二档",-30,60632.5],["第三档",-40,51970.7]];
 var IDX={spx:null,ndq:null,gold:null};
 function $(id){return document.getElementById(id)}
@@ -204,11 +204,11 @@ function renderHolds(){
     +'<div class="kv"><span>IMX</span><b>21</b></div>'
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div></div>';
   h+='<div class="line-card"><h3>OKX 交易资金</h3>'
-    +'<div class="kv"><span>交易账户</span><b>$74.98</b></div>'
-    +'<div class="kv"><span>简单赚币（活期）</span><b>$421.47</b></div>'
-    +'<div class="kv"><span>赚币累计利息</span><b>$1.47</b></div>'
-    +'<div class="kv"><span>合计</span><b>$496.45</b></div>'
-    +'<div class="note">读数日期 2026-11-13（只读自查）；闲置资金只放活期，三个口袋分开记。</div></div>';
+    +'<div class="kv"><span>交易账户</span><b>$74.57</b></div>'
+    +'<div class="kv"><span>简单赚币（活期）</span><b>$421.53</b></div>'
+    +'<div class="kv"><span>赚币累计利息</span><b>$1.53</b></div>'
+    +'<div class="kv"><span>合计</span><b>$496.10</b></div>'
+    +'<div class="note">读数日期 2026-11-14（只读自查）；闲置资金只放活期，三个口袋分开记。</div></div>';
   h+='<div class="line-card"><h3>国金证券账户</h3>'
     +'<div class="kv"><span>标普500ETF博时 513500</span><b>300 份 · 成本 2.695</b></div>'
     +'<div class="kv"><span>纳指ETF广发 159941</span><b>100 份 · 成本 1.634</b></div>'
@@ -252,7 +252,7 @@ function setFng(v,y){
 function foot(){
   var d=new Date(), hh=("0"+d.getHours()).slice(-2), mm=("0"+d.getMinutes()).slice(-2);
   $("upd").textContent=hh+":"+mm+" 更新";
-  $("foot").innerHTML="行情来源：OKX 公开行情（打开与刷新时实时拉取）· 恐慌贪婪 alternative.me · 指数与黄金 Stooq。<br>持仓与各线状态为 2026-11-07 版，交易有变动时更新；资产按标的本身记录，不做币种换算。";
+  $("foot").innerHTML="行情来源：OKX 公开行情（打开与刷新时实时拉取）· 恐慌贪婪 alternative.me · 指数与黄金 Stooq。<br>持仓与各线状态为 2026-11-14 版，交易有变动时更新；资产按标的本身记录，不做币种换算。";
 }
 function ticker(inst){return fetch("https://www.okx.com/api/v5/market/ticker?instId="+inst).then(function(r){return r.json()}).then(function(j){return j.data[0]})}
 function loadAll(){

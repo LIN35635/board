@@ -133,7 +133,7 @@
 
     <aside class="detail" id="detail" aria-live="polite"></aside>
 
-    <div class="snapshot-tag">持仓 · 权益 · 三档 · 岗位状态为快照<br />截至 2026-11-09 晚（北京时间）<br />BTC 现价每分钟实时刷新</div>
+    <div class="snapshot-tag">持仓 · 权益 · 三档 · 岗位状态为快照<br />截至 2026-11-14 凌晨（北京时间）<br />BTC 现价每分钟实时刷新</div>
 
     <nav class="controls" aria-label="视角与工位">
       <div class="row" id="stationRow">
@@ -165,28 +165,29 @@
         errbox.textContent = "数据加载出错：" + (e.reason && e.reason.message ? e.reason.message : "未知错误");
       });
 
-      /* ================= snapshot data (2026-11-09 evening, Asia/Shanghai) ================= */
-      var SNAPSHOT_AT = "2026-11-09 晚";
+      /* ================= snapshot data (2026-11-14 early morning, Asia/Shanghai) ================= */
+      var SNAPSHOT_AT = "2026-11-14 凌晨";
       var TIERS = [
-        { name: "第一档 · 跌 20%", price: 69135.2 },
-        { name: "第二档 · 跌 30%", price: 60493.3 },
-        { name: "第三档 · 跌 40%", price: 51851.4 }
+        { name: "第一档 · 跌 20%", price: 69294.2, done: "2026-11-13" },
+        { name: "第二档 · 跌 30%", price: 60632.5 },
+        { name: "第三档 · 跌 40%", price: 51970.7 }
       ];
-      var HP90 = 86419.0;
+      var HP90 = 86617.8;
 
       var STATIONS = {
         overview: {
           title: "全局总览", role: "创 · 现阶段只做交易 · 快照 " + SNAPSHOT_AT,
           rows: [
-            ["持仓状态", "<b>空仓</b>"],
+            ["持仓状态", "<b>空单 0.08 张 @73,855（3 倍逐仓）</b>"],
             ["最近一单", "第 3 单 · 2026-11-09 由 01 本人平仓"],
             ["平仓价", "$73,934"],
             ["实现盈亏", "约 -$2.72（计划内）"],
-            ["冷却期", "24 小时 · 至 2026-11-10 15:28"],
-            ["账户权益", "约 <b>$492.50</b>"],
-            ["├ 交易账户", "$70.40"],
-            ["└ 简单赚币", "$422.09"],
-            ["钱包线", "三档均未触发（见盯守岗）"]
+            ["现持仓", "空单 0.08 张 · 2026-11-11 本人开 · 止损 79,763"],
+            ["冷却期", "已过（至 2026-11-10 15:28）"],
+            ["账户权益", "约 <b>$496.10</b>"],
+            ["├ 交易账户", "$74.57"],
+            ["└ 简单赚币", "$421.53"],
+            ["钱包线", "第一档已触发（2026-11-13），余两档未触发"]
           ],
           note: "点任意工位或下方按钮查看各岗详情。BTC 现价为实时行情，其余为快照数据。"
         },
@@ -195,9 +196,9 @@
           rows: [
             ["成员", "01 · 本人"],
             ["席位", "总控"],
-            ["最近动作", "2026-11-09 本人平第 3 单"],
-            ["平仓价", "$73,934 · 实亏约 $2.72（计划内）"],
-            ["当前持仓", "空仓 · 冷却至 2026-11-10 15:28"]
+            ["最近动作", "2026-11-11 本人开空单 0.08 张 @73,855"],
+            ["开仓价", "$73,855 · 3 倍逐仓"],
+            ["当前持仓", "空单 0.08 张 · 止损 79,763"]
           ]
         },
         u02: {
@@ -220,8 +221,8 @@
             ["播报内容", "BTC 行情"],
             ["播报渠道", "微信"],
             ["播报节奏", "每 1 小时一条"],
-            ["最近一播", "22:39:52 · 现价 $74,355"],
-            ["最近心跳", "22:55:34 · 现价 $74,834.1"]
+            ["最近一播", "00:14:31 · 现价 $68,546"],
+            ["最近心跳", "00:09:05 · 哨兵启动（在岗）"]
           ]
         },
         watch: {
@@ -229,10 +230,10 @@
           rows: [
             ["核查对象", "持仓 · 规矩 · 钱包线"],
             ["核查方式", "只读 · 每 120 秒一轮"],
-            ["当前持仓", "空仓"],
-            ["冷却到期", "2026-11-10 15:28"],
-            ["90 日高点", "收盘口径 HP90 = 86,419.0"],
-            ["钱包三档", "均未触发"]
+            ["当前持仓", "空单 0.08 张 @73,855 · 止损 79,763"],
+            ["冷却到期", "已过（至 2026-11-10 15:28）"],
+            ["90 日高点", "收盘口径 HP90 = 86,617.8"],
+            ["钱包三档", "第一档已触发（2026-11-13），余两档未触发"]
           ],
           tiers: true
         }
@@ -493,10 +494,10 @@
         g.font = "bold 52px sans-serif";
         g.fillText("24h " + chgTxt, 48, 285);
         g.fillStyle = "rgba(190,208,224,0.95)"; g.font = "36px 'PingFang SC','Microsoft YaHei',sans-serif";
-        g.fillText("持仓：空仓    冷却至 11-10 15:28", 48, 362);
-        g.fillText("钱包三档  69,135 / 60,493 / 51,851 · 未触发", 48, 424);
+        g.fillText("持仓：空单 0.08 张 @73,855 · 止损 79,763", 48, 362);
+        g.fillText("钱包三档  69,294.2 / 60,632.5 / 51,970.7 · 第一档已触发 2026-11-13", 48, 424);
         g.fillStyle = "rgba(120,145,168,0.8)"; g.font = "26px 'PingFang SC','Microsoft YaHei',sans-serif";
-        g.fillText("快照 2026-11-09 晚 · 现价每分钟刷新", 48, 478);
+        g.fillText("快照 2026-11-14 凌晨 · 现价每分钟刷新", 48, 478);
         wallTex.needsUpdate = true;
       }
       drawWallScreen("——", "——", false);
@@ -658,11 +659,13 @@
           html += "<div class='tierbar'>";
           TIERS.forEach(function (t) {
             var far = "";
-            if (livePrice) {
+            if (t.done) {
+              far = " · 已触发 " + t.done;
+            } else if (livePrice) {
               var pct = (livePrice - t.price) / livePrice * 100;
               far = " · 现价再跌 " + pct.toFixed(1) + "% 到档";
             }
-            html += "<div class='t'><span>" + t.name + "</span><span><b>$" + t.price.toLocaleString("en-US", { minimumFractionDigits: 1 }) + "</b><span class='far'> 未触发" + far + "</span></span></div>";
+            html += "<div class='t'><span>" + t.name + "</span><span><b>$" + t.price.toLocaleString("en-US", { minimumFractionDigits: 1 }) + "</b><span class='far'>" + (t.done ? "已触发" : "未触发") + far + "</span></span></div>";
           });
           html += "</div>";
         }
