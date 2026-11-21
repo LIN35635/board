@@ -127,9 +127,9 @@
   </div>
   <div class="line-card"><h3>创钱包线影子账</h3>
     <div class="kv"><span>虚拟本金</span><b>$1,000</b></div>
-    <div class="kv"><span>现金 / 持仓 BTC</span><b>$666.67 / 333.33 份 @68,652.7</b></div>
-    <div class="kv"><span>三档触发</span><b>第一档已触发（2026-11-13）；第二档 11-20 晚盘中触发，待 11-20 收盘确认记账</b></div>
-    <div class="kv"><span>记账至 2026-11-19</span><b>收盘 61,984.8 · 回撤 28.44%</b></div>
+    <div class="kv"><span>现金 / 持仓 BTC</span><b>$333.34 / 666.66 份（333.33 @68,652.7 ＋ 333.33 @59,247.46）</b></div>
+    <div class="kv"><span>三档触发</span><b>第一档已触发（2026-11-13）；第二档 11-20 收盘确认记账（收盘 58,952.7、回撤 31.94%）</b></div>
+    <div class="kv"><span>记账至 2026-11-20</span><b>收盘 58,952.7 · 回撤 31.94%</b></div>
     <div class="note">基准价 76,467.8（2026-11-05 定格）；验收要满 6 个月且至少真触发一次 20% 档。</div>
   </div>
 </section>
@@ -185,16 +185,17 @@ function renderLines(px){
     +'<div class="kv"><span>平仓</span><b>2026-11-15 17:10 本人手动平仓</b></div>'
     +'<div class="kv"><span>24h 冷却</span><b>已满（2026-11-16 17:10 结束）</b></div>'
     +'<div class="kv"><span>四单汇总</span><b>2 赢 2 亏 · 合计净 +$2.54</b></div>'
-    +'<div class="note">此单是 2026-11-11 本人亲手开的，在规矩定版之前，按手册第十条不追溯、不编号；出场按本人 2026-11-15 裁定：手动平仓算合规出场。70,665 挂空单提醒已于 2026-11-16 17:15 发出（当时现价 64,188.9，距 70,665 差 6,476.1，未到），只提醒不下单。</div></div>';
+    +'<div class="kv"><span>挂单 · 卖出限价</span><b>0.08 张 @68,200 · 止损 73,656</b></div>'
+    +'<div class="note">此单是 2026-11-11 本人亲手开的，在规矩定版之前，按手册第十条不追溯、不编号；出场按本人 2026-11-15 裁定：手动平仓算合规出场。挂单 0.08 张原 @63,332.8，2026-11-21 23:52 本人上移至 @68,200（移单非新增），止损 73,656 在位；70,665 挂空单提醒已于 2026-11-16 17:15 发出（当时现价 64,188.9，距 70,665 差 6,476.1，未到），只提醒不下单。</div></div>';
   }
   h+='<div class="line-card"><h3>线2 · 创钱包（长持） <span class="tag live">运行中</span></h3>'
     +'<div class="kv"><span>BTC</span><b>0.00496387</b></div>'
     +'<div class="kv"><span>IMX</span><b>21</b></div>'
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div>'
-    +'<div class="kv"><span>影子账（虚拟 $1,000）</span><b>已买入 333.33 @68,652.7 · 现金 $666.67</b></div>'
+    +'<div class="kv"><span>影子账（虚拟 $1,000）</span><b>已买入 666.66 份（333.33 @68,652.7 ＋ 333.33 @59,247.46）· 现金 $333.34</b></div>'
     +'<div class="kv"><span>基准价（2026-11-05 定格）</span><b>$76,467.8</b></div>'
-    +'<div class="kv"><span>影子记账至 2026-11-19</span><b>收盘 61,984.8 · 回撤 28.44% · 第一档已买入</b></div>'
-    +'<div class="note">只买不卖的长持线：回撤三档见上方盯盘线（实时回撤按现价算），到档由本人自己在钱包买入；影子账先行验证，满 6 个月且至少真触发一次 20% 档才算验完。第一档 2026-11-13 盘中已触发，影子账 2026-11-13 收盘已正式记这一档（买入 333.33 @68,652.7）；真钱没买（本人定：现在没资金买）。11-20 晚盘中最低 60,521.5，穿过第二档 60,632.5（回撤 30.13%），正式记账等 11-20 收盘后。</div></div>';
+    +'<div class="kv"><span>影子记账至 2026-11-20</span><b>收盘 58,952.7 · 回撤 31.94% · 第一、二档已买入</b></div>'
+    +'<div class="note">长期持有线（可增持也可减持，2026-11-19 本人纠正定位）：回撤三档见上方盯盘线（实时回撤按现价算），到档由本人自己在钱包买入；影子账先行验证，满 6 个月且至少真触发一次 20% 档才算验完。第一档 2026-11-13 盘中已触发，影子账 2026-11-13 收盘已正式记这一档（买入 333.33 @68,652.7）；真钱没买（本人定：现在没资金买）。11-20 UTC 收盘 58,952.7、回撤 31.94%，二档收盘确认、影子账已记假买 333.33 @59,247.46（真买未定）。</div></div>';
   h+='<div class="line-card"><h3>线3 · 标普 500 <span class="tag idle">已立线 · 未投钱</span></h3>'
     +'<div class="kv"><span>标普 500 指数</span><b id="spxPx">'+(IDX.spx?fmt(IDX.spx,1):"—")+'</b></div>'
     +'<div class="note">定投篮子成员（标普＋纳指＋黄金），过年后再启动，现在只看价。</div></div>';
@@ -217,11 +218,11 @@ function renderHolds(){
     +'<div class="kv"><span>IMX</span><b>21</b></div>'
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div></div>';
   h+='<div class="line-card"><h3>OKX 交易资金</h3>'
-    +'<div class="kv"><span>交易账户</span><b>$75.35</b></div>'
-    +'<div class="kv"><span>简单赚币（活期）</span><b>$424.64</b></div>'
-    +'<div class="kv"><span>赚币累计利息</span><b>$2.11</b></div>'
-    +'<div class="kv"><span>合计</span><b>$499.99</b></div>'
-    +'<div class="note">读数日期 2026-11-20 22:45（只读自查）；利息为 11-19 读数 $2.11，本轮未新读；闲置资金只放活期，三个口袋分开记。</div></div>';
+    +'<div class="kv"><span>交易账户</span><b>75.43 USDT</b></div>'
+    +'<div class="kv"><span>简单赚币（活期）</span><b>本金 422.42 USDT</b></div>'
+    +'<div class="kv"><span>赚币累计利息</span><b>2.42 USDT</b></div>'
+    +'<div class="kv"><span>合计</span><b>500.27 USDT（本金 497.85）</b></div>'
+    +'<div class="note">读数日期 2026-11-21 18:20（只读自查）；App 资产页同日 18:27 折美元 $496.91（App 赚币行只显示本金、接口读数含利息，两边口径不同、钱没少）；闲置资金只放活期，三个口袋分开记。</div></div>';
   h+='<div class="line-card"><h3>国金证券账户</h3>'
     +'<div class="kv"><span>标普500ETF博时 513500</span><b>300 份 · 成本 2.695</b></div>'
     +'<div class="kv"><span>纳指ETF广发 159941</span><b>100 份 · 成本 1.634</b></div>'
@@ -265,7 +266,7 @@ function setFng(v,y){
 function foot(){
   var d=new Date(), hh=("0"+d.getHours()).slice(-2), mm=("0"+d.getMinutes()).slice(-2);
   $("upd").textContent=hh+":"+mm+" 更新";
-  $("foot").innerHTML="行情来源：OKX 公开行情（打开与刷新时实时拉取）· 恐慌贪婪 alternative.me · 指数与黄金 Stooq。<br>持仓与各线状态为 2026-11-21 版，交易有变动时更新；资产按标的本身记录，不做币种换算。";
+  $("foot").innerHTML="行情来源：OKX 公开行情（打开与刷新时实时拉取）· 恐慌贪婪 alternative.me · 指数与黄金 Stooq。<br>持仓与各线状态为 2026-11-22 版，交易有变动时更新；资产按标的本身记录，不做币种换算。";
 }
 function ticker(inst){return fetch("https://www.okx.com/api/v5/market/ticker?instId="+inst).then(function(r){return r.json()}).then(function(j){return j.data[0]})}
 function loadAll(){
