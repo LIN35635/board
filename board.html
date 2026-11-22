@@ -114,7 +114,8 @@
     <div class="kv"><span>第 2 单 · 2026-10-28 于 80,500 平仓</span><b style="color:var(--green)">+$0.33</b></div>
     <div class="kv"><span>第 3 单 · 2026-11-09 于 73,934 平仓</span><b style="color:var(--red)">−$2.72</b></div>
     <div class="kv"><span>空单 · 2026-11-15 于 65,792.4 平仓</span><b style="color:var(--green)">+$6.45</b></div>
-    <div class="kv"><span>已平合计</span><b>+$2.54</b></div>
+    <div class="kv"><span>第 5 单 · 2026-11-22 于 60,952.8 平仓</span><b style="color:var(--red)">−$1.36</b></div>
+    <div class="kv"><span>已平合计</span><b>+$1.18</b></div>
     <div class="note">第 3 单是新规矩下第一笔走完的单；空单在规矩定版之前开，不编号；前两单是旧账。这本账只记事实，不下结论。</div>
   </div>
 </section>
@@ -129,7 +130,7 @@
     <div class="kv"><span>虚拟本金</span><b>$1,000</b></div>
     <div class="kv"><span>现金 / 持仓 BTC</span><b>$333.34 / 666.66 份（333.33 @68,652.7 ＋ 333.33 @59,247.46）</b></div>
     <div class="kv"><span>三档触发</span><b>第一档已触发（2026-11-13）；第二档 11-20 收盘确认记账（收盘 58,952.7、回撤 31.94%）</b></div>
-    <div class="kv"><span>记账至 2026-11-20</span><b>收盘 58,952.7 · 回撤 31.94%</b></div>
+    <div class="kv"><span>记账至 2026-11-21</span><b>收盘 60,213.4 · 回撤 30.48%</b></div>
     <div class="note">基准价 76,467.8（2026-11-05 定格）；验收要满 6 个月且至少真触发一次 20% 档。</div>
   </div>
 </section>
@@ -146,7 +147,7 @@
 
 <footer id="foot"></footer>
 <script>
-var ATH=126080, HP90=86618;
+var ATH=126080, HP90=86617.8;
 var FALLBACK={px:68749,chg:-6.68,high:74196.9,low:68000,vol:545300000,fng:20,fngY:28};
 var POS={contracts:0,btc:0,avg:0,stop:0,inRisk:0,inRiskPct:0,liq:0};
 var TIERS=[["第一档",-20,69294.2],["第二档",-30,60632.5],["第三档",-40,51970.7]];
@@ -173,7 +174,7 @@ function renderLines(px){
   var stopDist=(POS.stop-px)/px*100;
   h+='<div class="line-card"><h3>线1 · BTC 长拿（交易） <span class="tag live">运行中</span></h3>'
     +'<div class="kv"><span>现持仓 · 空单 '+POS.contracts+' 张</span><b>均价 '+fmt(POS.avg,1)+'</b></div>'
-    +'<div class="kv"><span>开仓</span><b>0.08 张 · 73,855 · 3 倍逐仓</b></div>'
+    +'<div class="kv"><span>开仓</span><b>0.1 张 · 59,635.7 · 3 倍逐仓</b></div>'
     +'<div class="kv"><span>按现价浮动</span><b style="color:'+cls(pnl)+'">'+(pnl>=0?"+":"−")+'$'+fmt(Math.abs(pnl),2)+'（'+pct(pnlPct)+'）</b></div>'
     +'<div class="kv"><span>离止损 '+fmt(POS.stop,0)+' 还差</span><b>'+stopDist.toFixed(1)+'%</b></div>'
     +'<div class="kv"><span>全单在险</span><b>$'+POS.inRisk+' ≈ '+POS.inRiskPct+'%</b></div>'
@@ -181,12 +182,12 @@ function renderLines(px){
   } else {
   h+='<div class="line-card"><h3>线1 · BTC 长拿（交易） <span class="tag live">运行中</span></h3>'
     +'<div class="kv"><span>现持仓</span><b>空仓</b></div>'
-    +'<div class="kv"><span>上一单 · 空单 0.08 张</span><b>73,855 → 65,792.4 · 净 +$6.45</b></div>'
+    +'<div class="kv"><span>上一单 · 空单 0.1 张</span><b>59,635.7 → 60,952.8 · 净 −$1.36</b></div>'
     +'<div class="kv"><span>平仓</span><b>2026-11-15 17:10 本人手动平仓</b></div>'
-    +'<div class="kv"><span>24h 冷却</span><b>已满（2026-11-16 17:10 结束）</b></div>'
-    +'<div class="kv"><span>四单汇总</span><b>2 赢 2 亏 · 合计净 +$2.54</b></div>'
-    +'<div class="kv"><span>挂单 · 卖出限价</span><b>0.08 张 @68,200 · 止损 73,656</b></div>'
-    +'<div class="note">此单是 2026-11-11 本人亲手开的，在规矩定版之前，按手册第十条不追溯、不编号；出场按本人 2026-11-15 裁定：手动平仓算合规出场。挂单 0.08 张原 @63,332.8，2026-11-21 23:52 本人上移至 @68,200（移单非新增），止损 73,656 在位；70,665 挂空单提醒已于 2026-11-16 17:15 发出（当时现价 64,188.9，距 70,665 差 6,476.1，未到），只提醒不下单。</div></div>';
+    +'<div class="kv"><span>24h 冷却</span><b>至 2026-11-23 19:43</b></div>'
+    +'<div class="kv"><span>五单汇总</span><b>2 赢 3 亏 · 合计净 +$1.18</b></div>'
+    +'<div class="kv"><span>挂单 · 卖出限价</span><b>已撤销（本人 11-22 撤销）</b></div>'
+    +'<div class="note">此单是 2026-11-11 本人亲手开的，在规矩定版之前，按手册第十条不追溯、不编号；出场按本人 2026-11-15 裁定：手动平仓算合规出场。第 5 单：2026-11-22 16:21 本人亲手开空 0.1 张 @59,635.7，19:43 手动平仓 @60,952.8，净 −$1.36；止损 3.4% 窄于定版 8% 与预设止盈两项偏差随平仓结清，固定 8% 改不改待定、下次开单前定；原挂 68,200 的 0.08 张限价空单已撤销；上一单 73,855 @65,792.4 平仓，净 +$6.45（定版前开，不编号）；70,665 挂空单提醒已于 2026-11-16 17:15 发出（当时现价 64,188.9，距 70,665 差 6,476.1，未到），只提醒不下单。</div></div>';
   }
   h+='<div class="line-card"><h3>线2 · 创钱包（长持） <span class="tag live">运行中</span></h3>'
     +'<div class="kv"><span>BTC</span><b>0.00496387</b></div>'
@@ -218,11 +219,11 @@ function renderHolds(){
     +'<div class="kv"><span>IMX</span><b>21</b></div>'
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div></div>';
   h+='<div class="line-card"><h3>OKX 交易资金</h3>'
-    +'<div class="kv"><span>交易账户</span><b>75.43 USDT</b></div>'
-    +'<div class="kv"><span>简单赚币（活期）</span><b>本金 422.42 USDT</b></div>'
-    +'<div class="kv"><span>赚币累计利息</span><b>2.42 USDT</b></div>'
-    +'<div class="kv"><span>合计</span><b>500.27 USDT（本金 497.85）</b></div>'
-    +'<div class="note">读数日期 2026-11-21 18:20（只读自查）；App 资产页同日 18:27 折美元 $496.91（App 赚币行只显示本金、接口读数含利息，两边口径不同、钱没少）；闲置资金只放活期，三个口袋分开记。</div></div>';
+    +'<div class="kv"><span>交易账户</span><b>$73.96</b></div>'
+    +'<div class="kv"><span>简单赚币（活期）</span><b>$422.54</b></div>'
+    +'<div class="kv"><span>赚币累计利息</span><b>2.42 USDT（11-21 读数，本轮未重读）</b></div>'
+    +'<div class="kv"><span>合计</span><b>约 $496.50</b></div>'
+    +'<div class="note">读数日期 2026-11-22 21:02（hook 只读）；交易账户较 11-21 的 $75.43 少约 $1.47，与当日平仓净 −$1.36 同向；11-21 双口径本金 497.85／含息 500.27 USDT 本轮未重读；闲置资金只放活期，三个口袋分开记。</div></div>';
   h+='<div class="line-card"><h3>国金证券账户</h3>'
     +'<div class="kv"><span>标普500ETF博时 513500</span><b>300 份 · 成本 2.695</b></div>'
     +'<div class="kv"><span>纳指ETF广发 159941</span><b>100 份 · 成本 1.634</b></div>'
@@ -266,7 +267,7 @@ function setFng(v,y){
 function foot(){
   var d=new Date(), hh=("0"+d.getHours()).slice(-2), mm=("0"+d.getMinutes()).slice(-2);
   $("upd").textContent=hh+":"+mm+" 更新";
-  $("foot").innerHTML="行情来源：OKX 公开行情（打开与刷新时实时拉取）· 恐慌贪婪 alternative.me · 指数与黄金 Stooq。<br>持仓与各线状态为 2026-11-22 版，交易有变动时更新；资产按标的本身记录，不做币种换算。";
+  $("foot").innerHTML="行情来源：OKX 公开行情（打开与刷新时实时拉取）· 恐慌贪婪 alternative.me · 指数与黄金 Stooq。<br>持仓与各线状态为 2026-11-23 版，交易有变动时更新；资产按标的本身记录，不做币种换算。";
 }
 function ticker(inst){return fetch("https://www.okx.com/api/v5/market/ticker?instId="+inst).then(function(r){return r.json()}).then(function(j){return j.data[0]})}
 function loadAll(){
