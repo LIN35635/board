@@ -130,7 +130,7 @@
     <div class="kv"><span>虚拟本金</span><b>$1,000</b></div>
     <div class="kv"><span>现金 / 持仓 BTC</span><b>$333.34 / 666.66 份（333.33 @68,652.7 ＋ 333.33 @59,247.46）</b></div>
     <div class="kv"><span>三档触发</span><b>第一档已触发（2026-11-13）；第二档 11-20 收盘确认记账（收盘 58,952.7、回撤 31.94%）</b></div>
-    <div class="kv"><span>记账至 2026-11-21</span><b>收盘 60,213.4 · 回撤 30.48%</b></div>
+    <div class="kv"><span>记账至 2026-11-22</span><b>收盘 60,857.8 · 回撤 29.74%</b></div>
     <div class="note">基准价 76,467.8（2026-11-05 定格）；验收要满 6 个月且至少真触发一次 20% 档。</div>
   </div>
 </section>
@@ -149,7 +149,7 @@
 <script>
 var ATH=126080, HP90=86617.8;
 var FALLBACK={px:68749,chg:-6.68,high:74196.9,low:68000,vol:545300000,fng:20,fngY:28};
-var POS={contracts:0,btc:0,avg:0,stop:0,inRisk:0,inRiskPct:0,liq:0};
+var POS={contracts:0.1,btc:0.001,avg:60363.9,stop:57345.7,inRisk:3.02,inRiskPct:0.60,liq:0};
 var TIERS=[["第一档",-20,69294.2],["第二档",-30,60632.5],["第三档",-40,51970.7]];
 var IDX={spx:null,ndq:null,gold:null};
 function $(id){return document.getElementById(id)}
@@ -170,24 +170,26 @@ function renderTiers(px){
 function renderLines(px){
   var h="";
   if(POS.contracts>0){
-  var pnl=(POS.avg-px)*POS.btc, pnlPct=(POS.avg-px)/POS.avg*100;
-  var stopDist=(POS.stop-px)/px*100;
+  var pnl=(px-POS.avg)*POS.btc, pnlPct=(px-POS.avg)/POS.avg*100;
+  var stopDist=(px-POS.stop)/px*100;
   h+='<div class="line-card"><h3>线1 · BTC 长拿（交易） <span class="tag live">运行中</span></h3>'
-    +'<div class="kv"><span>现持仓 · 空单 '+POS.contracts+' 张</span><b>均价 '+fmt(POS.avg,1)+'</b></div>'
-    +'<div class="kv"><span>开仓</span><b>0.1 张 · 59,635.7 · 3 倍逐仓</b></div>'
+    +'<div class="kv"><span>现持仓 · 多单 '+POS.contracts+' 张</span><b>均价 '+fmt(POS.avg,1)+'</b></div>'
+    +'<div class="kv"><span>开仓</span><b>0.1 张 · 60,363.9 · 3 倍逐仓 · 2026-11-23 10:42 本人亲手开</b></div>'
+    +'<div class="kv"><span>上一单 · 空单 0.1 张</span><b>59,635.7 → 60,952.8 · 净 −$1.36</b></div>'
     +'<div class="kv"><span>按现价浮动</span><b style="color:'+cls(pnl)+'">'+(pnl>=0?"+":"−")+'$'+fmt(Math.abs(pnl),2)+'（'+pct(pnlPct)+'）</b></div>'
     +'<div class="kv"><span>离止损 '+fmt(POS.stop,0)+' 还差</span><b>'+stopDist.toFixed(1)+'%</b></div>'
+    +'<div class="kv"><span>周线翻向</span><b>周收 60,857.8 跌破上周最低 61,931.1，信号成立，平不平由 01 定</b></div>'
     +'<div class="kv"><span>全单在险</span><b>$'+POS.inRisk+' ≈ '+POS.inRiskPct+'%</b></div>'
-    +'<div class="note">止损挂在交易所，已核在位，整笔进出。此单是 2026-11-11 本人亲手开的，在规矩定版之前，按手册第十条不追溯、不编号。</div></div>';
+    +'<div class="note">止损挂在交易所，已核在位，整笔进出。第 6 单：2026-11-23 10:42 本人亲手开多 0.1 张 @60,363.9，止损 57,345.7（-5.0%，上限 8% 内合规）；第 6 条 24h 冷却违规（距上笔平仓仅约 15 小时，本人已认）；手册 v1.5（2026-11-23 定）：止损上限 8%。</div></div>';
   } else {
   h+='<div class="line-card"><h3>线1 · BTC 长拿（交易） <span class="tag live">运行中</span></h3>'
     +'<div class="kv"><span>现持仓</span><b>空仓</b></div>'
     +'<div class="kv"><span>上一单 · 空单 0.1 张</span><b>59,635.7 → 60,952.8 · 净 −$1.36</b></div>'
     +'<div class="kv"><span>平仓</span><b>2026-11-15 17:10 本人手动平仓</b></div>'
-    +'<div class="kv"><span>24h 冷却</span><b>至 2026-11-23 19:43</b></div>'
+    +'<div class="kv"><span>24h 冷却</span><b>待第 6 单平仓后重算</b></div>'
     +'<div class="kv"><span>五单汇总</span><b>2 赢 3 亏 · 合计净 +$1.18</b></div>'
     +'<div class="kv"><span>挂单 · 卖出限价</span><b>已撤销（本人 11-22 撤销）</b></div>'
-    +'<div class="note">此单是 2026-11-11 本人亲手开的，在规矩定版之前，按手册第十条不追溯、不编号；出场按本人 2026-11-15 裁定：手动平仓算合规出场。第 5 单：2026-11-22 16:21 本人亲手开空 0.1 张 @59,635.7，19:43 手动平仓 @60,952.8，净 −$1.36；止损 3.4% 窄于定版 8% 与预设止盈两项偏差随平仓结清，固定 8% 改不改待定、下次开单前定；原挂 68,200 的 0.08 张限价空单已撤销；上一单 73,855 @65,792.4 平仓，净 +$6.45（定版前开，不编号）；70,665 挂空单提醒已于 2026-11-16 17:15 发出（当时现价 64,188.9，距 70,665 差 6,476.1，未到），只提醒不下单。</div></div>';
+    +'<div class="note">此单是 2026-11-11 本人亲手开的，在规矩定版之前，按手册第十条不追溯、不编号；出场按本人 2026-11-15 裁定：手动平仓算合规出场。第 5 单：2026-11-22 16:21 本人亲手开空 0.1 张 @59,635.7，19:43 手动平仓 @60,952.8，净 −$1.36；止损 3.4% 窄于定版 8% 与预设止盈两项偏差随平仓结清，手册 v1.5（2026-11-23 定）：止损上限 8%；原挂 68,200 的 0.08 张限价空单已撤销；上一单 73,855 @65,792.4 平仓，净 +$6.45（定版前开，不编号）；70,665 挂空单提醒已于 2026-11-16 17:15 发出（当时现价 64,188.9，距 70,665 差 6,476.1，未到），只提醒不下单。</div></div>';
   }
   h+='<div class="line-card"><h3>线2 · 创钱包（长持） <span class="tag live">运行中</span></h3>'
     +'<div class="kv"><span>BTC</span><b>0.00496387</b></div>'
@@ -195,7 +197,7 @@ function renderLines(px){
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div>'
     +'<div class="kv"><span>影子账（虚拟 $1,000）</span><b>已买入 666.66 份（333.33 @68,652.7 ＋ 333.33 @59,247.46）· 现金 $333.34</b></div>'
     +'<div class="kv"><span>基准价（2026-11-05 定格）</span><b>$76,467.8</b></div>'
-    +'<div class="kv"><span>影子记账至 2026-11-20</span><b>收盘 58,952.7 · 回撤 31.94% · 第一、二档已买入</b></div>'
+    +'<div class="kv"><span>影子记账至 2026-11-22</span><b>收盘 60,857.8 · 回撤 29.74% · 第一、二档已买入</b></div>'
     +'<div class="note">长期持有线（可增持也可减持，2026-11-19 本人纠正定位）：回撤三档见上方盯盘线（实时回撤按现价算），到档由本人自己在钱包买入；影子账先行验证，满 6 个月且至少真触发一次 20% 档才算验完。第一档 2026-11-13 盘中已触发，影子账 2026-11-13 收盘已正式记这一档（买入 333.33 @68,652.7）；真钱没买（本人定：现在没资金买）。11-20 UTC 收盘 58,952.7、回撤 31.94%，二档收盘确认、影子账已记假买 333.33 @59,247.46（真买未定）。</div></div>';
   h+='<div class="line-card"><h3>线3 · 标普 500 <span class="tag idle">已立线 · 未投钱</span></h3>'
     +'<div class="kv"><span>标普 500 指数</span><b id="spxPx">'+(IDX.spx?fmt(IDX.spx,1):"—")+'</b></div>'
@@ -219,11 +221,17 @@ function renderHolds(){
     +'<div class="kv"><span>IMX</span><b>21</b></div>'
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div></div>';
   h+='<div class="line-card"><h3>OKX 交易资金</h3>'
-    +'<div class="kv"><span>交易账户</span><b>$73.96</b></div>'
-    +'<div class="kv"><span>简单赚币（活期）</span><b>$422.54</b></div>'
+    +'<div class="kv"><span>交易账户</span><b>$76.87</b></div>'
+    +'<div class="kv"><span>简单赚币（活期）</span><b>$422.61</b></div>'
     +'<div class="kv"><span>赚币累计利息</span><b>2.42 USDT（11-21 读数，本轮未重读）</b></div>'
-    +'<div class="kv"><span>合计</span><b>约 $496.50</b></div>'
-    +'<div class="note">读数日期 2026-11-22 21:02（hook 只读）；交易账户较 11-21 的 $75.43 少约 $1.47，与当日平仓净 −$1.36 同向；11-21 双口径本金 497.85／含息 500.27 USDT 本轮未重读；闲置资金只放活期，三个口袋分开记。</div></div>';
+    +'<div class="kv"><span>合计</span><b>$499.55</b></div>'
+    +'<div class="kv"><span>持仓浮盈（22:00 只读）</span><b style="color:var(--green)">+$2.88</b></div>'
+    +'<div class="note">读数日期 2026-11-23 22:00（只读）；交易账户较 11-22 的 $73.96 多约 $2.91，与第 6 单持仓浮盈 +$2.88 同向；11-21 双口径本金 497.85／含息 500.27 USDT 本轮未重读；闲置资金只放活期，三个口袋分开记。</div></div>';
+  h+='<div class="line-card"><h3>BTC 哨兵</h3>'
+    +'<div class="kv"><span>最近心跳</span><b>2026-11-24 01:11:24 · 现价 $61,820.5</b></div>'
+    +'<div class="kv"><span>最近一播</span><b>2026-11-24 00:08:02 · 现价 $62,748</b></div>'
+    +'<div class="kv"><span>黄金方向</span><b>11-23 首判看空</b></div>'
+    +'<div class="note">sentinel.py 25,452 B；持仓行＋黄金方向行已上线（T-24/26），哨兵改读持仓快照；工作日 07:00–次日 01:00 每 1 小时播报，走信息。</div></div>';
   h+='<div class="line-card"><h3>国金证券账户</h3>'
     +'<div class="kv"><span>标普500ETF博时 513500</span><b>300 份 · 成本 2.695</b></div>'
     +'<div class="kv"><span>纳指ETF广发 159941</span><b>100 份 · 成本 1.634</b></div>'
