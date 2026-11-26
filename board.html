@@ -148,10 +148,10 @@
 
 <footer id="foot"></footer>
 <script>
-var ATH=126080, HP90=86617.8;
+var ATH=126080, HP90=86369.9;
 var FALLBACK={px:68749,chg:-6.68,high:74196.9,low:68000,vol:545300000,fng:20,fngY:28};
 var POS={contracts:0.11,btc:0.0011,avg:59424.7,stop:62395.9,inRisk:3.27,inRiskPct:0.66,dir:-1,liq:0};
-var TIERS=[["第一档",-20,69294.2],["第二档",-30,60632.5],["第三档",-40,51970.7]];
+var TIERS=[["第一档",-20,69095.9],["第二档",-30,60458.9],["第三档",-40,51821.9]];
 var IDX={spx:null,ndq:null,gold:null};
 function $(id){return document.getElementById(id)}
 function fmt(n,d){if(n==null||isNaN(n))return "—";return n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d})}
@@ -181,7 +181,7 @@ function renderLines(px){
     +'<div class="kv"><span>离止损 '+fmt(POS.stop,0)+' 还差</span><b>'+stopDist.toFixed(1)+'%</b></div>'
     +'<div class="kv"><span>周线翻向</span><b>周收 61,240 跌破上周最低 61,931.1，信号成立（第 6 单已平）</b></div>'
     +'<div class="kv"><span>全单在险</span><b>$'+POS.inRisk+' ≈ '+POS.inRiskPct+'%</b></div>'
-    +'<div class="note">止损挂在交易所，已核在位，整笔进出。第 7 单：2026-11-24 18:53 本人亲手开空 0.11 张 @59,424.7，条件单止损 62,395.9（+5.0%，上限 8% 内合规）；OCO 止损 64,255.9（+8.13%）在 01:22 两次直读 live 挂单中未出现，实际在生效的止损只有 62,395.9；第 6 条 24h 冷却违规（距第 6 单平仓仅约 1 分钟，连续第二笔，冷却至 11-25 18:52）；手册 v1.5（2026-11-23 定）：止损上限 8%。</div></div>';
+    +'<div class="note">止损挂在交易所，已核在位，整笔进出。第 7 单：2026-11-24 18:53 本人亲手开空 0.11 张 @59,424.7，条件单止损 62,395.9（+5.0%，上限 8% 内合规）；OCO 止损 64,255.9（+8.13%）在 01:22 两次直读 live 挂单中未出现，实际在生效的止损只有 62,395.9；第 6 条 24h 冷却违规（距第 6 单平仓仅约 1 分钟，连续第二笔，冷却至 11-25 18:52，已满）；预设止盈 47,639.9 为定版外第四种出场；2026-11-26 22:00 只读浮亏 −$1.57（标记价 60,849）；手册 v1.5（2026-11-23 定）：止损上限 8%。</div></div>';
   } else {
   h+='<div class="line-card"><h3>线1 · BTC 长拿（交易） <span class="tag live">运行中</span></h3>'
     +'<div class="kv"><span>现持仓</span><b>空仓</b></div>'
@@ -198,8 +198,8 @@ function renderLines(px){
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div>'
     +'<div class="kv"><span>影子账（虚拟 $1,000）</span><b>已买入 666.66 份（333.33 @68,652.7 ＋ 333.33 @59,247.46）· 现金 $333.34</b></div>'
     +'<div class="kv"><span>基准价（2026-11-05 定格）</span><b>$76,467.8</b></div>'
-    +'<div class="kv"><span>影子记账至 2026-11-23</span><b>收盘 61,272.8 · 回撤 29.26% · 第一、二档已买入</b></div>'
-    +'<div class="note">长期持有线（可增持也可减持，2026-11-19 本人纠正定位）：回撤三档见上方盯盘线（实时回撤按现价算），到档由本人自己在钱包买入；影子账先行验证，满 6 个月且至少真触发一次 20% 档才算验完。第一档 2026-11-13 盘中已触发，影子账 2026-11-13 收盘已正式记这一档（买入 333.33 @68,652.7）；真钱没买（本人定：现在没资金买）。11-20 UTC 收盘 58,952.7、回撤 31.94%，二档收盘确认、影子账已记假买 333.33 @59,247.46（真买未定）。11-22 收盘更正为 61,268.8（回撤 29.27%，原 60,857.8 是北京时间日收盘）。</div></div>';
+    +'<div class="kv"><span>影子记账至 2026-11-25</span><b>收盘 58,315.5 · 回撤 32.48% · 第一、二档已买入</b></div>'
+    +'<div class="note">长期持有线（可增持也可减持，2026-11-19 本人纠正定位）：回撤三档见上方盯盘线（实时回撤按现价算），到档由本人自己在钱包买入；影子账先行验证，满 6 个月且至少真触发一次 20% 档才算验完。第一档 2026-11-13 盘中已触发，影子账 2026-11-13 收盘已正式记这一档（买入 333.33 @68,652.7）；真钱没买（本人定：现在没资金买）。11-20 UTC 收盘 58,952.7、回撤 31.94%，二档收盘确认、影子账已记假买 333.33 @59,247.46（真买未定）。11-22 收盘更正为 61,268.8（回撤 29.27%，原 60,857.8 是北京时间日收盘）。11-24 UTC 收盘 59,827.3、回撤 30.93%，低于二档但二档已于 11-20 触发、不重复触发，真买本人 11-24 定不买（没钱），影子账照记；11-25 UTC 收盘 58,315.5、回撤 32.48%；HP90 现算 86,369.9，三档 69,095.9／60,458.9／51,821.9。</div></div>';
   h+='<div class="line-card"><h3>线3 · 标普 500 <span class="tag idle">已立线 · 未投钱</span></h3>'
     +'<div class="kv"><span>标普 500 指数</span><b id="spxPx">'+(IDX.spx?fmt(IDX.spx,1):"—")+'</b></div>'
     +'<div class="note">定投篮子成员（标普＋纳指＋黄金），过年后再启动，现在只看价。</div></div>';
@@ -222,17 +222,17 @@ function renderHolds(){
     +'<div class="kv"><span>IMX</span><b>21</b></div>'
     +'<div class="kv"><span>USDT</span><b>≈ 0.4</b></div></div>';
   h+='<div class="line-card"><h3>OKX 交易资金</h3>'
-    +'<div class="kv"><span>交易账户</span><b>$72.70</b></div>'
-    +'<div class="kv"><span>简单赚币（活期）</span><b>$422.80</b></div>'
-    +'<div class="kv"><span>赚币累计利息</span><b>2.80 USDT（01:22 只读）</b></div>'
-    +'<div class="kv"><span>合计</span><b>$495.50</b></div>'
-    +'<div class="kv"><span>持仓浮亏（01:22 只读）</span><b style="color:var(--red)">−$0.30</b></div>'
-    +'<div class="note">读数日期 2026-11-25 01:22（只读）；较 11-23 22:00 少约 $4.05，主因第 6 单平仓浮盈回吐＋实亏；11-21 双口径本金 497.85／含息 500.27 USDT 本轮未重读；闲置资金只放活期，三个口袋分开记。</div></div>';
+    +'<div class="kv"><span>交易账户</span><b>$71.51</b></div>'
+    +'<div class="kv"><span>简单赚币（活期）</span><b>$423.01</b></div>'
+    +'<div class="kv"><span>赚币累计利息</span><b>未单列（22:00 只读 $423.01）</b></div>'
+    +'<div class="kv"><span>合计</span><b>$494.52</b></div>'
+    +'<div class="kv"><span>持仓浮亏（22:00 只读）</span><b style="color:var(--red)">−$1.57</b></div>'
+    +'<div class="note">读数日期 2026-11-26 22:00（只读）；较 11-25 01:22 少约 $0.98，主因第 7 单浮亏 −$0.30→−$1.57；11-21 双口径本金 497.85／含息 500.27 USDT 本轮未重读；闲置资金只放活期，三个口袋分开记。</div></div>';
   h+='<div class="line-card"><h3>BTC 哨兵</h3>'
-    +'<div class="kv"><span>最近心跳</span><b>2026-11-25 01:20:13 · 现价 $59,754.1</b></div>'
-    +'<div class="kv"><span>最近一播</span><b>2026-11-25 00:06:41 · 现价 $59,552</b></div>'
+    +'<div class="kv"><span>最近心跳</span><b>2026-11-27 01:11:23 · 现价 $60,572.4</b></div>'
+    +'<div class="kv"><span>最近一播</span><b>2026-11-26 20:06:06 · 现价 $60,828（全量版首播）</b></div>'
     +'<div class="kv"><span>黄金方向</span><b>11-24 仍看空</b></div>'
-    +'<div class="note">sentinel.py 25,452 B；持仓行＋黄金方向行已上线（T-24/26），哨兵改读持仓快照；工作日 07:00–次日 01:00 每 1 小时播报，走信息。</div></div>';
+    +'<div class="note">sentinel.py 32,380 B（全量版 patch3，2026-11-26 20:06:06 已按新代码实发，现价 60,828）；持仓行＋黄金方向行已上线（T-24/26），哨兵改读持仓快照；工作日 07:00–次日 01:00 每 1 小时播报，走信息。</div></div>';
   h+='<div class="line-card"><h3>国金证券账户</h3>'
     +'<div class="kv"><span>标普500ETF博时 513500</span><b>300 份 · 成本 2.695</b></div>'
     +'<div class="kv"><span>纳指ETF广发 159941</span><b>100 份 · 成本 1.634</b></div>'
@@ -276,7 +276,7 @@ function setFng(v,y){
 function foot(){
   var d=new Date(), hh=("0"+d.getHours()).slice(-2), mm=("0"+d.getMinutes()).slice(-2);
   $("upd").textContent=hh+":"+mm+" 更新";
-  $("foot").innerHTML="行情来源：OKX 公开行情（打开与刷新时实时拉取）· 恐慌贪婪 alternative.me · 指数与黄金 Stooq。<br>持仓与各线状态为 2026-11-24 版，交易有变动时更新；资产按标的本身记录，不做币种换算。";
+  $("foot").innerHTML="行情来源：OKX 公开行情（打开与刷新时实时拉取）· 恐慌贪婪 alternative.me · 指数与黄金 Stooq。<br>持仓与各线状态为 2026-11-26 版，交易有变动时更新；资产按标的本身记录，不做币种换算。";
 }
 function ticker(inst){return fetch("https://www.okx.com/api/v5/market/ticker?instId="+inst).then(function(r){return r.json()}).then(function(j){return j.data[0]})}
 function loadAll(){
